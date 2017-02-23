@@ -8,10 +8,15 @@ import org.litepal.crud.DataSupport;
 
 public class MyFollow extends DataSupport {
 
+    private int id;
     private String account;
     private String name;
     private String introduction;
     private byte[] face;
+
+    public int getId() {
+        return id;
+    }
 
     public String getIntroduction() {
         return introduction;
@@ -27,6 +32,10 @@ public class MyFollow extends DataSupport {
 
     public String getName() {
         return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {

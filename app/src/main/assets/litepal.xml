@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value="InformationStore"/>
+    <dbname value="InformationAndFollowStore"/>
     <version value="1"/>
     <list>
         <mapping class="com.goldfish.sevenseconds.bean.Information"/>
-    </list>
-</litepal>
-
-<litepal>
-    <dbname value="MyFollowStore"/>
-    <version value="1"/>
-    <list>
         <mapping class="com.goldfish.sevenseconds.bean.MyFollow"/>
     </list>
 </litepal>

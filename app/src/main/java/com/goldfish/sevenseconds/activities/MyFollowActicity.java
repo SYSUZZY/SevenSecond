@@ -2,6 +2,7 @@ package com.goldfish.sevenseconds.activities;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -13,7 +14,6 @@ import com.goldfish.sevenseconds.item.MyFollowItem;
 import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MyFollowActicity extends MyPageActivity {
 
-    private List<MyFollowItem> followItemList = new ArrayList<MyFollowItem>();
+    private List<MyFollowItem> followItemList = new ArrayList<>();
     private SQLiteDatabase db;            // 数据库
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class MyFollowActicity extends MyPageActivity {
         recyclerView.setLayoutManager(layoutManager);
         MyFollowAdapter adapter = new MyFollowAdapter(followItemList);
         recyclerView.setAdapter(adapter);
+        //设置Item增加、移除动画
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     private void initMyFollowItem() {
