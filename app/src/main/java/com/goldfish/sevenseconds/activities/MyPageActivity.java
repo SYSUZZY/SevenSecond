@@ -8,13 +8,19 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goldfish.sevenseconds.R;
 import com.goldfish.sevenseconds.bean.Information;
 import com.goldfish.sevenseconds.bean.MyFollow;
 import com.goldfish.sevenseconds.db.ChattingDatabaseHelper;
+import com.goldfish.sevenseconds.tools.TurnCardListView;
 
 import org.litepal.tablemanager.Connector;
 
@@ -120,6 +126,46 @@ public class MyPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent myToMessage = new Intent(MyPageActivity.this, MessageActivity.class);
                 startActivity(myToMessage);
+            }
+        });
+
+
+        TurnCardListView list = (TurnCardListView) findViewById(R.id.card_list);
+
+        list.setOnTurnListener(new TurnCardListView.OnTurnListener() {
+            @Override
+            public void onTurned(int position) {
+                Toast.makeText(MyPageActivity.this, "position = " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        list.setAdapter(new BaseAdapter() {
+            int[] colors = {0xffFF9800, 0xff3F51B5, 0xff673AB7, 0xff006064, 0xffC51162, 0xffFFEB3B, 0xff795548, 0xff9E9E9E};
+
+            @Override
+            public int getCount() {
+                return colors.length;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return position;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return position;
+            }
+
+            @Override
+            public View getView(int position, View child, ViewGroup parent) {
+                if (child == null) {
+                    child = LayoutInflater.from(parent.getContext()).inflate(R.layout.memory_item, parent, false);
+                }
+
+                //child.findViewById(R.id.image).setBackgroundColor(colors[position]);
+                return child;
             }
         });
     }
