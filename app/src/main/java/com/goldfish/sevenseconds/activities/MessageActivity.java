@@ -31,12 +31,14 @@ public class MessageActivity extends MyPageActivity {
         ArrayList<String> titles = new ArrayList<>();
         titles.add("聊天");
         titles.add("评论");
+
         ArrayList<Fragment> fragments = new ArrayList<>();
         for (String s : titles) {
             Bundle bundle = new Bundle();
             bundle.putString("title", s);
             fragments.add(MessageContent.getInstance(bundle));
         }
+
         pager.setAdapter(new MessageAdapter(getSupportFragmentManager(), titles, fragments));
         tabs.setViewPager(pager);
         pager.setCurrentItem(1);

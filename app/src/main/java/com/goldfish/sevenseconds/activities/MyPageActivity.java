@@ -46,9 +46,9 @@ public class MyPageActivity extends AppCompatActivity {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, os);
         test.setFace(os.toByteArray());
-        test.save();*/
+        test.save();
 
-        /*dbChattingDatabaseHelper = new ChattingDatabaseHelper(
+        dbChattingDatabaseHelper = new ChattingDatabaseHelper(
                 this, "MessageStore.db", null, 1);
         SQLiteDatabase dbMessage1 = dbChattingDatabaseHelper.getWritableDatabase();
         dbMessage1.execSQL("create table if not exists noend22 ("
@@ -66,9 +66,9 @@ public class MyPageActivity extends AppCompatActivity {
                 new String[]{"y741323965", "Hey! What's up!", "2017/2/24 10:32", "1", "1"});
         dbMessage1.execSQL("insert into noend22 (account, message, time, sendOrReceive, readOrNot) " +
                         "values(?, ?, ?, ?, ?)",
-                new String[]{"noend22", "Miss me?", "2017/2/24 10:33", "0", "0"});*/
+                new String[]{"noend22", "Miss me?", "2017/2/24 10:33", "0", "0"});
 
-        /*Resources res = getResources();
+        Resources res = getResources();
         Bitmap bmp = ((BitmapDrawable) res.getDrawable(R.drawable.app_icon)).getBitmap();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         bmp.compress(Bitmap.CompressFormat.PNG, 100, os);

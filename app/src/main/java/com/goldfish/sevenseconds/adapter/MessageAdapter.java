@@ -11,7 +11,6 @@ import java.util.List;
 public class MessageAdapter extends FragmentPagerAdapter {
 
     private ArrayList<String> titles;
-
     private List<Fragment> fragments;
 
     public MessageAdapter(FragmentManager fm, ArrayList<String> list, List<Fragment> fragments) {
